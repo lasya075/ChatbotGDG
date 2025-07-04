@@ -19,15 +19,15 @@ chatbot/
 ├── retriever.py         # RAG retriever using FAISS
 ├── embeddings.py        # CodeBERT embedder for documents & queries
 ├── example.ipynb      # Example script to interact with the chatbot
-├── GDG-CB4CP-Ass_1/
-│   ├── Problem Scraper/      # Problem statements (TXT files)
-│     ├──Problem_statement
-│     ├──Problem_metadata
-│     ├──Problem_scraper.py
-│   ├── Editorial Scraper/       # Editorial explanations (TXT files)
-│     ├──editorial_extraction.py
-│     ├──editorial
-│     ├──metadata_n_
+└── GDG-CB4CP-Ass_1/
+    ├── Problem Scraper/      # Problem statements (TXT files)
+      ├──Problem_statement
+      ├──Problem_metadata
+      ├──Problem_scraper.py
+    ├── Editorial Scraper/       # Editorial explanations (TXT files)
+      ├──editorial_extraction.py
+      ├──editorial
+      ├──metadata_n_
 
   
 ```
