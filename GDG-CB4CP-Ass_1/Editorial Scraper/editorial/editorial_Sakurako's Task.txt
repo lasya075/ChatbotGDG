@@ -1,0 +1,57 @@
+Tutorial:
+Let's look at case when 𝑛=1. We cannot change the value of the element, so we will not change the array.
+
+If 𝑛>1, let's call 𝑔=𝑔𝑐𝑑(𝑎1,𝑎2,…,𝑎𝑛). Using operations in the statement, we can get only numbers 0 and that have 𝑔as a divisor. So, the best array for this task will be 𝑎𝑖=(𝑖−1)⋅𝑔.
+
+Now, we can find where the 𝑚𝑒𝑥𝑘 should be in linear time. Firstly, if it is before the first one, then the answer is 𝑘, otherwise, we can assign 𝑘=𝑘−𝑎1.
+Then let's look at the second element. If 𝑎1+𝑘<𝑎2, then answer should be 𝑎1+𝑘 and otherwise we can assign 𝑘=𝑘−𝑎2+𝑎1−1. In other words, when we look if our 𝑘 can be in range from 𝑎𝑖 to 𝑎𝑖+1 ,
+we know that number of elements that were not in the array and less than 𝑎𝑖 equal to 𝑘+𝑎𝑖. Then, when we find such 𝑖, we can output the answer.
+
+C++ Code:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n>>k;
+        long long a[n+1],g=0,mx=0;
+        for(int i=0;i<n;i++)
+        {
+            cin>>a[i];
+            g=__gcd(g,a[i]);
+            mx=max(mx,a[i]);
+        }
+        if(g==0)
+        {
+            cout<<k<<endl;
+            continue;
+        }
+        sort(a,a+n);
+        int q=-g;
+        if(n!=1)
+        {
+            for(int i=0;i<n;i++)
+            {
+                q+=g;
+                a[i]=q;
+            }
+        }
+        a[n]=1e16;
+        long long lst=-1;
+        for(int i=0;i<=n;i++)
+        {
+            if(k<=a[i]-lst-1)
+            {
+                break;
+            }
+            k-=max(a[i]-lst-1,0ll);
+            lst=a[i];
+        }
+        cout<<lst+k<<endl;
+    }
+}

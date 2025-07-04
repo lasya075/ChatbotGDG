@@ -1,0 +1,57 @@
+Tutorial:
+We can solve this problem greedily. Let's choose the first element equal to 𝑙
+. Then, the second element should be 𝑙+1
+. The third 𝑙+3
+, and so on. In general, the 𝑖−
+th element is equal to 𝑙+𝑖⋅(𝑖+1)2.
+
+Proof of this solution:
+
+Assume that array 𝑎
+ is the array made by our algorithm and 𝑏
+ is the array with a better answer. This means that 𝑙𝑒𝑛(𝑏)>𝑙𝑒𝑛(𝑎)
+. By the construction of 𝑎
+, there exists an integer 𝑖
+ such that for all 𝑗<𝑖
+, 𝑎𝑗=𝑏𝑗
+ and 𝑎𝑖<𝑏𝑖
+, because 𝑎𝑖
+ we choose as the smallest possible element. WLOG assume that 𝑙𝑒𝑛(𝑏)=𝑙𝑒𝑛(𝑎)+1=𝑛
+. Then 𝑏𝑛−𝑏𝑛−1>𝑏𝑛−1−𝑏𝑛−2≥𝑎𝑛−1−𝑎𝑛−2
+. So, we can append 𝑏𝑛
+ to the array 𝑎
+, which leads to a contradiction.
+
+Now, the task is to find the biggest 𝑥
+ such that 𝑙+𝑥⋅(𝑥+1)2≤𝑟
+. In fact, it can be found by binary search, the formula of discriminant, or just by brute force.
+
+C++ Code:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long a,b;
+        cin>>a>>b;
+        b-=a;
+        long long l=2,r=1000000000;
+        while(l<r)
+        {
+            long long m=(l+r)/2;
+            if(m*(m-1)/2<=b)
+            {
+                l=m+1;
+            }
+            else
+            {
+                r=m;
+            }
+        }
+        cout<<l-1<<endl;
+    }
+}

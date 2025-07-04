@@ -1,0 +1,53 @@
+Tutorial:
+Assume that string was created from the beautiful binary matrix with size 𝑟×𝑐.
+
+If 𝑟≤2 or 𝑐≤2, then the whole matrix consists of '1'. This means that the string will have only one character and this is the only case such happening. So, if the whole string is constructed out of '1', we print "Yes" only if the size of the string is 4, since only 𝑟=𝑐=2
+is a good matrix for us.
+
+Otherwise, we have at least one '0' in the string. Let's look at what is the index of the first '0'. If it has index 𝑟+1
+, since the whole first line and the first character of the first line equal to '1', so now, we have a fixed value of 𝑟
+(index of the first '0' minus 1) and the answer is "Yes" only if 𝑟 is the square root of 𝑛.
+
+C++ Code:
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int id=0;
+        while(id<n&&s[id]=='1')
+        {
+            id++;
+        }
+        if(id==n)
+        {
+            if(n==4)
+            {
+                cout<<"Yes"<<endl;
+            }
+            else
+            {
+                cout<<"No"<<endl;
+            }
+        }
+        else
+        {
+            if((id-1)*(id-1)==n)
+            {
+                cout<<"Yes"<<endl;
+            }
+            else
+            {
+                cout<<"No"<<endl;
+            }
+        }
+    }
+    return 0;
+}

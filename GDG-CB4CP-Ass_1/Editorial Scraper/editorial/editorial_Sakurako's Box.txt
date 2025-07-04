@@ -1,0 +1,51 @@
+Tutorial:
+By the statement, we need to find the value of this expresion ∑𝑛𝑖=0∑𝑛𝑗=𝑖+1𝑎𝑖⋅𝑎𝑗𝑛⋅(𝑛−1)2
+. Let's find this two values separately. For the first, we can do it in several ways. We can see that this sum equal to ∑𝑛𝑖=0𝑎𝑖⋅(∑𝑛𝑗=𝑖+1𝑎𝑗)
+ and compute by prefix sum. Also, we can notice that it is equal to (∑𝑛𝑖=0𝑎𝑖)2−∑𝑛𝑖=0𝑎2𝑖2
+. Note, that for second approach you need to use division by modulo, i.e. 2−1=2𝑝−2
+ for prime p. To compute 𝑛⋅(𝑛−1)2
+, you can compute 𝑛⋅(𝑛−1)
+ by modulo and than use division by modulo for 2−1
+. Then, also using division by modulo you need to divide first value by second.
+
+C++ Code:
+#include <bits/stdc++.h>
+
+using namespace std;
+constexpr int mod=1e9+7;
+
+long long binpow(long long a,long long b)
+{
+    if(b==0)
+    {
+        return 1;
+    }
+    if(b%2)
+    {
+        return (a*binpow(a,b-1))%mod;
+    }
+    return binpow((a*a)%mod,b/2);
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long n;
+        cin>>n;
+        long long a[n],sum=0,sumsq=0;
+        for(int i=0;i<n;i++)
+        {
+            cin>>a[i];
+            sum+=a[i];sum%=mod;
+            sumsq+=a[i]*a[i];
+            sumsq%=mod;
+        }
+        sum*=sum;sum%=mod;
+        sum=(sum-sumsq+mod)%mod;
+        sum=(sum*binpow(2,mod-2))%mod;
+        long long cnt=n*(n-1)/2;cnt%=mod;
+        cout<<(sum%mod)*binpow(cnt,mod-2)%mod<<endl;
+    }
+}

@@ -1,0 +1,67 @@
+Tutorial:
+Let's fix one 𝑥 and try to solve this task for it. As we know, in 0− indexed array median is ⌊𝑛2⌋ where 𝑛 is number of elements in the array, so to find median, we need to find the smallest element which has at least ⌊𝑛2⌋
+elements in the array that is less or equal to it. Also, it is obvious, that we need to decrease all elements till we can, since the least element, the least median of the array is. So, after all operation, we change 𝑎𝑖 to 𝑎𝑖mod𝑥.
+
+How to find number of 𝑖 that 𝑎𝑖mod𝑥≤𝑚 for some 𝑚. In fact, we can try to find number of elements in range [𝑘⋅𝑥,𝑘⋅𝑥+𝑚] for all 𝑘,
+since all this elements will be less then 𝑚 if we take it by modulo 𝑥. To find number of elements in such range, we can notice that 𝑎𝑖≤𝑛,
+so we can make prefix sum of counting array (let's call it 𝑝𝑟𝑒𝑓[𝑖] number of elements less or equal 𝑖) and then number of elements in tange [𝑎,𝑏] will be 𝑝𝑟𝑒𝑓[𝑏]−𝑝𝑟𝑒𝑓[𝑎−1].
+Also, since 𝑎𝑖≤𝑛, 𝑘 will be less then 𝑛𝑥, so for fixed 𝑥 our solution will work in 𝑛𝑥⋅𝑙𝑜𝑔(𝑛). Let's precompute it for all 𝑥 in range [1,𝑛]. Then, it will work in time ∑𝑛+1𝑥=1𝑛𝑥⋅𝑙𝑜𝑔(𝑛)=𝑙𝑜𝑔(𝑛)⋅∑𝑛+1𝑥=1𝑛𝑥=(∗)𝑙𝑜𝑔(𝑛)⋅𝑛⋅𝑙𝑜𝑔(𝑛)=𝑛⋅𝑙𝑜𝑔2(𝑛).
+
+(∗)This transition is true because of ∑𝑛+1𝑖=1𝑛𝑥 is harmonic series. It means, ∑𝑛+1𝑖=1𝑛𝑥=𝑛⋅∑𝑛+1𝑖=11𝑥≤𝑛⋅𝑙𝑜𝑔(𝑛).
+
+C++ Code:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int t=1;
+    cin>>t;
+    for(int i=1;i<=t;i++)
+    {
+        int n,m;
+        cin>>n>>m;
+        vector<int>a(n);
+        vector<int>c(n+1,0ll);
+        for(int i=0;i<n;i++)
+        {
+            cin>>a[i];
+            c[a[i]]++;
+        }
+        for(int i=1;i<=n;i++)
+        {
+            c[i]+=c[i-1];
+        }
+        int res[n+1]={0};
+        for(int x=1;x<=n;x++)
+        {
+            int l=0,r=x;
+            while(l<r)
+            {
+                int mid=(l+r)/2;
+                int cnt=c[mid];
+                for(int k=1;k*x<=n;k++)
+                {
+                    cnt+=c[min(k*x+mid,n)]-c[k*x-1];
+                }
+                if(cnt-1>=n/2)
+                {
+                    r=mid;
+                }
+                else
+                {
+                    l=mid+1;
+                }
+            }
+            res[x]=l;
+        }
+        while(m--)
+        {
+            int x;
+            cin>>x;
+            cout<<res[x]<<" ";
+        }
+        cout<<endl;
+    }
+}

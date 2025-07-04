@@ -1,0 +1,118 @@
+[
+    {
+        "contest_id_problem_index": "2008-E",
+        "title": "Alternating String",
+        "url": "https://codeforces.com/problemset/problem/2008/E",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dp",
+            "greedy",
+            "implementation",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-C",
+        "title": "Longest Good Array",
+        "url": "https://codeforces.com/problemset/problem/2008/C",
+        "tags": [
+            "binary search",
+            "brute force",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-F",
+        "title": "Sakurako's Box",
+        "url": "https://codeforces.com/problemset/problem/2008/F",
+        "tags": [
+            "combinatorics",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-A",
+        "title": "Sakurako's Exam",
+        "url": "https://codeforces.com/problemset/problem/2008/A",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-D",
+        "title": "Sakurako's Hobby",
+        "url": "https://codeforces.com/problemset/problem/2008/D",
+        "tags": [
+            "dp",
+            "dsu",
+            "graphs",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-G",
+        "title": "Sakurako's Task",
+        "url": "https://codeforces.com/problemset/problem/2008/G",
+        "tags": [
+            "binary search",
+            "greedy",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-H",
+        "title": "Sakurako's Test",
+        "url": "https://codeforces.com/problemset/problem/2008/H",
+        "tags": [
+            "binary search",
+            "brute force",
+            "greedy",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-B",
+        "title": "Square or Not",
+        "url": "https://codeforces.com/problemset/problem/2008/B",
+        "tags": [
+            "brute force",
+            "math",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1957-A",
+        "title": "Stickogon",
+        "url": "https://codeforces.com/problemset/problem/1957/A",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    }
+]
