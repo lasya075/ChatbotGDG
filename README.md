@@ -36,24 +36,24 @@ chatbot/
 #How it Works
 
 1.Vector Store Creation
--Problem statements, editorials, and metadata are loaded
--Text is embedded using CodeBERT
--FAISS index is created for efficient similarity search
+- Problem statements, editorials, and metadata are loaded
+- Text is embedded using CodeBERT
+- FAISS index is created for efficient similarity search
 
 2.Query Handling
--User query is embedded using CodeBERT
--FAISS retrieves relevant documents
--Retrieved context + user query passed to Flan-T5 LLM
--LLM generates a conversational, context-aware response
+- User query is embedded using CodeBERT
+- FAISS retrieves relevant documents
+- Retrieved context + user query passed to Flan-T5 LLM
+- LLM generates a conversational, context-aware response
 
 3.Conversation Memory
--Chat history is maintained using LangChain's ConversationBufferMemory
--Supports multi-turn conversations with contextual continuity
+- Chat history is maintained using LangChain's ConversationBufferMemory
+- Supports multi-turn conversations with contextual continuity
 
 ---
 
 #Limitations
 
--LLM Size: Flan-T5 Base is a small model; for complex reasoning or explanations, larger LLMs are recommended
--Data Dependence: The quality of chatbot answers depends heavily on the provided problem/editorial data
+- LLM Size: Flan-T5 Base is a small model; for complex reasoning or explanations, larger LLMs are recommended
+- Data Dependence: The quality of chatbot answers depends heavily on the provided problem/editorial data
 
